@@ -8,10 +8,15 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.NumberFormat;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddressBookDTO {
     @Nullable
     private int id;
@@ -32,12 +37,12 @@ public class AddressBookDTO {
     @NotBlank(message = "state should not be empty")
     private String state;
 
-    @Min(value=100000)
-    @Pattern(regexp="^[1-9]{1}[0-9]{5}$" ,message = "zip should be 6 digits")
-    private long zip;
 
-    @Pattern(regexp="^[9][1]\\s[6-9][0-9]{9}$",message = "phone number should be 6 digits")
-    private long phoneNumber;
+    @Pattern(regexp="^[1-9]{1}[0-9]{5}$" ,message = "zip should be 6 digits")
+    private String zip;
+
+    @Pattern(regexp="^[6-9][0-9]{9}$",message = "phone number should be 10 digits")
+    private String phoneNumber;
 
     @NotBlank(message = "email should not be empty")
     @Pattern(regexp= "^[a-zA-Z0-9]{3,}([\\\\.\\\\+\\\\-]?[a-zA-Z0-9]{3,})?[@][A-Za-z0-9]{1,}[.][A-Za-z]{2,4}[,]?([.][A-Za-z]{2,4}[.]?)?$",message="email should not be empty")
