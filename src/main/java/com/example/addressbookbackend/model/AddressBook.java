@@ -33,7 +33,7 @@ public class AddressBook {
     private String state;
 
     @NonNull
-    private long zip;
+    private String zip;
     @NonNull
     private String phoneNumber;
 

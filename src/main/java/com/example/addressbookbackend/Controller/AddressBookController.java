@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 @RestController
+@RequestMapping("/addressbook")
 public class AddressBookController {
 
 
@@ -22,7 +23,7 @@ public class AddressBookController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/fetchAll")
+    @GetMapping("/fetch/all")
     public ResponseEntity<ResponseDTO> getAddresses() {
         ResponseDTO responseDTO = new ResponseDTO("Got all the data", addressService.getAllPersonRecords());
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
@@ -41,9 +42,11 @@ public class AddressBookController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteDataById(@PathVariable int id) {
+    public ResponseEntity<ResponseDTO> deleteDataById(@PathVariable int id) {
         addressService.deletePersonRecordById(id);
-        return new ResponseEntity<>("Deleted data for id: "+ id , HttpStatus.OK);
+        ResponseDTO responseDTO =new ResponseDTO("Updated data for given id: " + id, true);
+
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
     @GetMapping("/get")
@@ -52,9 +55,5 @@ public class AddressBookController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteByName(@RequestParam ("name") String name) throws PersonRecordNotFoundException {
-        addressService.deletePersonRecordByName(name);
-        return new ResponseEntity<>("Deleted data for name: "+ name , HttpStatus.OK);
-    }
+
 }
