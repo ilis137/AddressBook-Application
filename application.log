@@ -60,3 +60,10 @@ com.example.addressbookbackend.Controller.AddressBookController#getByName(String
 2023-01-23T11:03:25.046+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
 2023-01-23T11:03:25.054+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
 2023-01-23T11:04:03.366+05:30 DEBUG 12436 --- [http-nio-8080-exec-4] c.e.a.Services.AddressBookService        : AddressBook(id=2, name=Devendra, type=home, address=near station, city=panvel, state=maharashtra, zip=321543, phoneNumber=9873614251, email=bgfvds@vfc.gvf)
+2023-01-23T11:07:08.603+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 10848 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-01-23T11:07:08.607+05:30 DEBUG 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-23T11:07:08.609+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-01-23T11:07:16.442+05:30  WARN 10848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-23T11:07:17.293+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 9.625 seconds (process running for 11.201)
+2023-01-23T11:07:17.300+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
+2023-01-23T11:07:17.302+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment

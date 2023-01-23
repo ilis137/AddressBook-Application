@@ -49,8 +49,8 @@ public class AddressBookController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/getByName/")
-    public ResponseEntity<ResponseDTO> getByName(@RequestParam ("name") String name) throws PersonRecordNotFoundException {
+    @GetMapping("/getbyname/{name}")
+    public ResponseEntity<ResponseDTO> getByName(@PathVariable ("name") String name) throws PersonRecordNotFoundException {
         ResponseDTO responseDTO = new ResponseDTO("Got data for given name: " + name, addressService.getPersonRecordByName(name));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
