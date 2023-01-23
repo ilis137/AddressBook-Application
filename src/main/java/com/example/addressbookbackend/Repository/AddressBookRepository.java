@@ -9,4 +9,6 @@ import java.util.List;
 public interface AddressBookRepository extends JpaRepository<AddressBook,Integer> {
 
     List<AddressBook> findByName(String name);
+    List<AddressBook> findByCity(String city);
+    List<AddressBook> findByState(String state);
 }

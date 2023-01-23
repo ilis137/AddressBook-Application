@@ -14,16 +14,17 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class AddressBookService implements IAddressBookService{
+public class AddressBookService implements IAddressBookService {
     private static final ModelMapper modelMapper = new ModelMapper();
 
     @Autowired
     AddressBookRepository addressBookRepository;
+
     @Override
     public AddressBookDTO savePersonRecord(AddressBookDTO addressBookDTO) {
-        AddressBook record=modelMapper.map(addressBookDTO,AddressBook.class);
-        record=addressBookRepository.save(record);
-        return  modelMapper.map(record,AddressBookDTO.class);
+        AddressBook record = modelMapper.map(addressBookDTO, AddressBook.class);
+        record = addressBookRepository.save(record);
+        return modelMapper.map(record, AddressBookDTO.class);
     }
 
     @Override
@@ -51,28 +52,50 @@ public class AddressBookService implements IAddressBookService{
         addressBookData.setZip(addressBookDTO.getZip());
         addressBookData.setPhoneNumber(addressBookDTO.getPhoneNumber());
         addressBookData.setEmail(addressBookDTO.getEmail());
-       addressBookData = addressBookRepository.save(addressBookData);
+        addressBookData = addressBookRepository.save(addressBookData);
         return modelMapper.map(addressBookData, AddressBookDTO.class);
     }
 
     @Override
     public void deletePersonRecordById(int id) {
-        try{
+        try {
             addressBookRepository.deleteById(id);
-        }catch(RuntimeException ex){
-            throw new PersonRecordNotFoundException("Person record not found for id "+id);
+        } catch (RuntimeException ex) {
+            throw new PersonRecordNotFoundException("Person record not found for id " + id);
         }
 
     }
 
     @Override
     public List<AddressBookDTO> getPersonRecordByName(String name) throws PersonRecordNotFoundException {
-        try{
+        try {
             List<AddressBook> employeePayrollList = addressBookRepository.findByName(name);
             List<AddressBookDTO> employeePayrollDTOList = employeePayrollList.stream().map(record -> modelMapper.map(record, AddressBookDTO.class)).collect(Collectors.toList());
             return employeePayrollDTOList;
-        }catch(RuntimeException e){
-            throw new PersonRecordNotFoundException("Person record not found for name "+name);
+        } catch (RuntimeException e) {
+            throw new PersonRecordNotFoundException("Person record not found for name " + name);
+        }
+    }
+
+    @Override
+    public List<AddressBookDTO> getPersonRecordByCity(String city) {
+        try {
+            List<AddressBook> employeePayrollList = addressBookRepository.findByCity(city);
+            List<AddressBookDTO> employeePayrollDTOList = employeePayrollList.stream().map(record -> modelMapper.map(record, AddressBookDTO.class)).collect(Collectors.toList());
+            return employeePayrollDTOList;
+        } catch (RuntimeException e) {
+            throw new PersonRecordNotFoundException("Person record not found for city " + city);
+        }
+    }
+
+    @Override
+    public List<AddressBookDTO> getPersonRecordByState(String state) {
+        try {
+            List<AddressBook> employeePayrollList = addressBookRepository.findByState(state);
+            List<AddressBookDTO> employeePayrollDTOList = employeePayrollList.stream().map(record -> modelMapper.map(record, AddressBookDTO.class)).collect(Collectors.toList());
+            return employeePayrollDTOList;
+        } catch (RuntimeException e) {
+            throw new PersonRecordNotFoundException("Person record not found for state " + state);
         }
     }
 

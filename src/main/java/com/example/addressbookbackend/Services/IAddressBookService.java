@@ -13,4 +13,7 @@ public interface IAddressBookService {
     void deletePersonRecordById(int id);
     List<AddressBookDTO> getPersonRecordByName(String name) throws PersonRecordNotFoundException;
 
+    List<AddressBookDTO> getPersonRecordByCity(String city);
+
+    List<AddressBookDTO>  getPersonRecordByState(String state);
 }

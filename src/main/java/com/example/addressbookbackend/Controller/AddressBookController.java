@@ -49,11 +49,23 @@ public class AddressBookController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/getByName/")
     public ResponseEntity<ResponseDTO> getByName(@RequestParam ("name") String name) throws PersonRecordNotFoundException {
         ResponseDTO responseDTO = new ResponseDTO("Got data for given name: " + name, addressService.getPersonRecordByName(name));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 
+
+    @GetMapping("/getbycity/{city}")
+    public ResponseEntity<ResponseDTO> getByCity(@PathVariable("city") String city) throws PersonRecordNotFoundException {
+        ResponseDTO responseDTO = new ResponseDTO("Got data for given city: " + city, addressService.getPersonRecordByCity(city));
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/getbystate/{state}")
+    public ResponseEntity<ResponseDTO> getByState(@PathVariable("state") String state) throws PersonRecordNotFoundException {
+        ResponseDTO responseDTO = new ResponseDTO("Got data for given state: " + state, addressService.getPersonRecordByState(state));
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
 
 }
