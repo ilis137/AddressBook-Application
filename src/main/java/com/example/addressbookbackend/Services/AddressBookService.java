@@ -3,6 +3,7 @@ package com.example.addressbookbackend.Services;
 import com.example.addressbookbackend.DTO.AddressBookDTO;
 import com.example.addressbookbackend.Exceptions.PersonRecordNotFoundException;
 import com.example.addressbookbackend.Repository.AddressBookRepository;
+import com.example.addressbookbackend.Util.JWTUtil;
 import com.example.addressbookbackend.model.AddressBook;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,6 +22,9 @@ public class AddressBookService implements IAddressBookService {
     @Autowired
     AddressBookRepository addressBookRepository;
 
+
+    @Autowired
+    JWTUtil jwtUtil;
     @Override
     public AddressBookDTO savePersonRecord(AddressBookDTO addressBookDTO) {
         AddressBook record = modelMapper.map(addressBookDTO, AddressBook.class);
@@ -99,5 +104,60 @@ public class AddressBookService implements IAddressBookService {
         }
     }
 
+    @Override
+    public String CreateRecordAndToken(AddressBookDTO addressBookDTO) {
+        AddressBook record = modelMapper.map(addressBookDTO, AddressBook.class);
+        record = addressBookRepository.save(record);
+        String token=jwtUtil.createToken(record.getId());
+        return token;
+    }
+    @Override
+    public AddressBookDTO getRecordByToken(String token){
+        int id=jwtUtil.decodeToken(token);
+        Optional<AddressBook> record=addressBookRepository.findById(id);
+        if(record.isPresent()){
+            return modelMapper.map(record.get(), AddressBookDTO.class);
+        }else {
+            throw new PersonRecordNotFoundException("Sorry! cannot find the token: "+token);
+        }
+    }
+
+
+    @Override
+    public List<AddressBookDTO> getAllRecordsByToken(String token){
+        int id=jwtUtil.decodeToken(token);
+        Optional<AddressBook> record=addressBookRepository.findById(id);
+        if(record.isPresent()){
+          return getAllPersonRecords();
+        }else {
+            throw new PersonRecordNotFoundException("Sorry! cannot find the token: "+token);
+        }
+    }
+
+    @Override
+    public AddressBookDTO updateRecordsByToken(String token, AddressBookDTO addressBookDTO){
+        int id=jwtUtil.decodeToken(token);
+        AddressBook addressBookData = addressBookRepository.findById(id).orElseThrow(() -> new PersonRecordNotFoundException("Person record not found for  token " + token));
+        addressBookData.setName(addressBookDTO.getName());
+        addressBookData.setAddress(addressBookDTO.getAddress());
+        addressBookData.setCity(addressBookDTO.getCity());
+        addressBookData.setState(addressBookDTO.getState());
+        addressBookData.setType(addressBookDTO.getType());
+        addressBookData.setZip(addressBookDTO.getZip());
+        addressBookData.setPhoneNumber(addressBookDTO.getPhoneNumber());
+        addressBookData.setEmail(addressBookDTO.getEmail());
+        addressBookData = addressBookRepository.save(addressBookData);
+        return modelMapper.map(addressBookData, AddressBookDTO.class);
+    }
+
+    @Override
+    public void deleteRecordsByToken(String token){
+        int id=jwtUtil.decodeToken(token);
+        try {
+            addressBookRepository.deleteById(id);
+        } catch (RuntimeException ex) {
+            throw new PersonRecordNotFoundException("Person record not found for token " + token);
+        }
+    }
 
 }

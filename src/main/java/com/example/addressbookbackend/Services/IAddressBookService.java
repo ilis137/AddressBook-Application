@@ -16,4 +16,16 @@ public interface IAddressBookService {
     List<AddressBookDTO> getPersonRecordByCity(String city);
 
     List<AddressBookDTO>  getPersonRecordByState(String state);
+
+
+
+    String CreateRecordAndToken(AddressBookDTO addressBookDTO);
+
+    AddressBookDTO getRecordByToken(String token);
+
+    List<AddressBookDTO> getAllRecordsByToken(String token);
+
+    AddressBookDTO updateRecordsByToken(String token, AddressBookDTO addressBookDTO);
+
+    void deleteRecordsByToken(String token);
 }

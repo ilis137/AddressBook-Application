@@ -67,5 +67,35 @@ public class AddressBookController {
         ResponseDTO responseDTO = new ResponseDTO("Got data for given state: " + state, addressService.getPersonRecordByState(state));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
+    @PostMapping ("/generate")
+    public ResponseEntity<ResponseDTO> generate(@Valid @RequestBody AddressBookDTO addressBookDTO) {
+        String token=addressService.CreateRecordAndToken(addressBookDTO);
+        ResponseDTO responseDTO=new ResponseDTO("address book record created!",token);
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+    }
 
+    @GetMapping("/findByToken/{token}")
+    public ResponseEntity<ResponseDTO> getByToken(@PathVariable String token){
+        ResponseDTO responseDTO=new ResponseDTO("Details found!",addressService.getRecordByToken(token));
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+    }
+
+    @GetMapping("/getAllByToken/{token}")
+    public ResponseEntity<ResponseDTO> findByToken(@PathVariable String token){
+        ResponseDTO responseDTO=new ResponseDTO("Record found for the token!",addressService.getAllRecordsByToken(token));
+        return new ResponseEntity<>(responseDTO,HttpStatus.OK);
+    }
+
+    @PutMapping("/updateByToken/{token}")
+    public ResponseEntity<ResponseDTO> updateByToken(@PathVariable String token,@Valid @RequestBody AddressBookDTO addressBookDTO){
+        ResponseDTO responseDTO =new ResponseDTO("Updated data for given token: " + token, addressService.updateRecordsByToken(token, addressBookDTO));
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteByToken/{token}")
+    public ResponseEntity<ResponseDTO> deleteByToken(@PathVariable String token){
+        addressService.deleteRecordsByToken(token);
+        ResponseDTO responseDTO =new ResponseDTO("deleted data for given token: " + token, true);
+        return new ResponseEntity<>(responseDTO, HttpStatus.OK);
+    }
 }

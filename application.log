@@ -1,69 +1,7 @@
-2023-01-23T11:01:26.094+05:30  INFO 10412 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 10412 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-23T11:01:26.271+05:30 DEBUG 10412 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-23T11:01:26.355+05:30  INFO 10412 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-23T11:01:57.087+05:30  WARN 10412 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-23T11:01:57.874+05:30  WARN 10412 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'addressBookController' method 
-com.example.addressbookbackend.Controller.AddressBookController#getByState(String)
-to {GET [/addressbook/get]}: There is already 'addressBookController' bean method
-com.example.addressbookbackend.Controller.AddressBookController#getByName(String) mapped.
-2023-01-23T11:01:59.276+05:30 ERROR 10412 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Ambiguous mapping. Cannot map 'addressBookController' method 
-com.example.addressbookbackend.Controller.AddressBookController#getByState(String)
-to {GET [/addressbook/get]}: There is already 'addressBookController' bean method
-com.example.addressbookbackend.Controller.AddressBookController#getByName(String) mapped.
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915) ~[spring-context-6.0.3.jar:6.0.3]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.3.jar:6.0.3]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
-	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:13) ~[main/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
-Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'addressBookController' method 
-com.example.addressbookbackend.Controller.AddressBookController#getByState(String)
-to {GET [/addressbook/get]}: There is already 'addressBookController' bean method
-com.example.addressbookbackend.Controller.AddressBookController#getByName(String) mapped.
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.validateMethodMapping(AbstractHandlerMethodMapping.java:667) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping$MappingRegistry.register(AbstractHandlerMethodMapping.java:633) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.registerHandlerMethod(AbstractHandlerMethodMapping.java:331) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:438) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.registerHandlerMethod(RequestMappingHandlerMapping.java:76) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lambda$detectHandlerMethods$2(AbstractHandlerMethodMapping.java:298) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721) ~[na:na]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.detectHandlerMethods(AbstractHandlerMethodMapping.java:296) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.processCandidateBean(AbstractHandlerMethodMapping.java:265) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:224) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:212) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:225) ~[spring-webmvc-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747) ~[spring-beans-6.0.3.jar:6.0.3]
-	... 19 common frames omitted
-
-2023-01-23T11:03:13.535+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 12436 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-23T11:03:13.540+05:30 DEBUG 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-23T11:03:13.541+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-23T11:03:23.823+05:30  WARN 12436 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-23T11:03:25.037+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 13.817 seconds (process running for 16.537)
-2023-01-23T11:03:25.046+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
-2023-01-23T11:03:25.054+05:30  INFO 12436 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
-2023-01-23T11:04:03.366+05:30 DEBUG 12436 --- [http-nio-8080-exec-4] c.e.a.Services.AddressBookService        : AddressBook(id=2, name=Devendra, type=home, address=near station, city=panvel, state=maharashtra, zip=321543, phoneNumber=9873614251, email=bgfvds@vfc.gvf)
-2023-01-23T11:07:08.603+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 10848 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-23T11:07:08.607+05:30 DEBUG 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-23T11:07:08.609+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-23T11:07:16.442+05:30  WARN 10848 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-23T11:07:17.293+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 9.625 seconds (process running for 11.201)
-2023-01-23T11:07:17.300+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
-2023-01-23T11:07:17.302+05:30  INFO 10848 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
+2023-01-24T21:19:03.741+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 12304 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-01-24T21:19:03.875+05:30 DEBUG 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-24T21:19:03.876+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-01-24T21:19:41.520+05:30  WARN 12304 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-24T21:19:43.816+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 50.827 seconds (process running for 63.682)
+2023-01-24T21:19:43.832+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
+2023-01-24T21:19:43.835+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
