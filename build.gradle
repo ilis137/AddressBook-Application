@@ -30,7 +30,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.modelmapper:modelmapper:3.1.1'
     implementation 'com.auth0:java-jwt:4.2.2'
-
+    implementation 'com.sun.mail:jakarta.mail:2.0.1'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:3.0.1'
 }
 
 tasks.named('test') {

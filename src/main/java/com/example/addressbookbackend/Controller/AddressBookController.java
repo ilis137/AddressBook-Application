@@ -54,7 +54,7 @@ public class AddressBookController {
         ResponseDTO responseDTO = new ResponseDTO("Got data for given name: " + name, addressService.getPersonRecordByName(name));
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
-
+//aqisrmkjfoqowtyr
 
     @GetMapping("/getbycity/{city}")
     public ResponseEntity<ResponseDTO> getByCity(@PathVariable("city") String city) throws PersonRecordNotFoundException {
@@ -99,3 +99,7 @@ public class AddressBookController {
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
 }
+/*
+* emailSenderService.sendEmail(addressBook.getEmail(),"Test Mail", "Hii...."+addressBook.getName()+" your details are added!\n\n Name:  "+addressBook.getName()+"\n Phone number:  "+addressBook.getPhoneNumber()+"\n Email:  "+addressBook.getEmail()+"\n Address:  "+addressBook.getAddress()+"\n City:  "+addressBook.getCity()+"\n State:  "+addressBook.getState()+"\n ZipCode:  "+addressBook.getZipCode());
+        return addressBook;
+* */

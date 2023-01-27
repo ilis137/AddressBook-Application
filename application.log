@@ -1,7 +1,122 @@
-2023-01-24T21:19:03.741+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 12304 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-24T21:19:03.875+05:30 DEBUG 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-24T21:19:03.876+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-24T21:19:41.520+05:30  WARN 12304 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-24T21:19:43.816+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 50.827 seconds (process running for 63.682)
-2023-01-24T21:19:43.832+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
-2023-01-24T21:19:43.835+05:30  INFO 12304 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
+2023-01-26T09:24:35.664+05:30  INFO 13212 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 13212 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-01-26T09:24:35.696+05:30 DEBUG 13212 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-26T09:24:35.697+05:30  INFO 13212 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-01-26T09:25:09.526+05:30  WARN 13212 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookController': Unsatisfied dependency expressed through field 'addressService': Error creating bean with name 'addressBookService': Unsatisfied dependency expressed through field 'emailSenderService': Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+2023-01-26T09:25:10.133+05:30 ERROR 13212 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookController': Unsatisfied dependency expressed through field 'addressService': Error creating bean with name 'addressBookService': Unsatisfied dependency expressed through field 'emailSenderService': Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:127) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:13) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookService': Unsatisfied dependency expressed through field 'emailSenderService': Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:127) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709) ~[spring-beans-6.0.3.jar:6.0.3]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:127) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709) ~[spring-beans-6.0.3.jar:6.0.3]
+	... 37 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709) ~[spring-beans-6.0.3.jar:6.0.3]
+	... 51 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.0.3.jar:6.0.3]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.0.3.jar:6.0.3]
+	... 64 common frames omitted
+Caused by: java.lang.ArrayStoreException: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
+	at java.base/java.lang.System.arraycopy(Native Method) ~[na:na]
+	at java.base/java.util.Vector.copyInto(Vector.java:205) ~[na:na]
+	at jakarta.activation.MimetypesFileTypeMap.<init>(MimetypesFileTypeMap.java:141) ~[jakarta.activation-api-2.1.0.jar:na]
+	at jakarta.activation.MimetypesFileTypeMap.<init>(MimetypesFileTypeMap.java:313) ~[jakarta.activation-api-2.1.0.jar:na]
+	at org.springframework.mail.javamail.ConfigurableMimeFileTypeMap.createFileTypeMap(ConfigurableMimeFileTypeMap.java:150) ~[spring-context-support-6.0.3.jar:6.0.3]
+	at org.springframework.mail.javamail.ConfigurableMimeFileTypeMap.getFileTypeMap(ConfigurableMimeFileTypeMap.java:123) ~[spring-context-support-6.0.3.jar:6.0.3]
+	at org.springframework.mail.javamail.ConfigurableMimeFileTypeMap.afterPropertiesSet(ConfigurableMimeFileTypeMap.java:110) ~[spring-context-support-6.0.3.jar:6.0.3]
+	at org.springframework.mail.javamail.JavaMailSenderImpl.<init>(JavaMailSenderImpl.java:115) ~[spring-context-support-6.0.3.jar:6.0.3]
+	at org.springframework.boot.autoconfigure.mail.MailSenderPropertiesConfiguration.mailSender(MailSenderPropertiesConfiguration.java:44) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139) ~[spring-beans-6.0.3.jar:6.0.3]
+	... 65 common frames omitted
+
+2023-01-26T09:59:53.517+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 10084 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-01-26T09:59:53.566+05:30 DEBUG 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-26T09:59:53.567+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-01-26T10:00:09.287+05:30  WARN 10084 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-26T10:00:10.287+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 18.702 seconds (process running for 29.262)
+2023-01-26T10:00:10.294+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
+2023-01-26T10:00:10.297+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
+2023-01-26T10:02:38.240+05:30  WARN 10084 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.addressbookbackend.Exceptions.PersonRecordNotFoundException: Person record not found for token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.2v46rRAv_LkSxSNCgXYNrU9x3s7pcCDWXOVOJKqduvU]
+2023-01-26T10:08:15.923+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 7524 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-01-26T10:08:15.925+05:30 DEBUG 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-26T10:08:15.926+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-01-26T10:08:21.219+05:30  WARN 7524 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-26T10:08:21.687+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 6.345 seconds (process running for 7.748)
+2023-01-26T10:08:21.691+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
+2023-01-26T10:08:21.693+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
+2023-01-26T10:09:30.213+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 7476 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-01-26T10:09:30.215+05:30 DEBUG 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-01-26T10:09:30.216+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-01-26T10:09:36.542+05:30  WARN 7476 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-01-26T10:09:37.099+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 7.783 seconds (process running for 9.679)
+2023-01-26T10:09:37.105+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
+2023-01-26T10:09:37.107+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
