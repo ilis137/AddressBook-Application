@@ -19,7 +19,7 @@ import org.springframework.format.annotation.NumberFormat;
 @AllArgsConstructor
 public class AddressBookDTO {
     @Nullable
-    private int id;
+    private int recordId;
 
     @NonNull
     @Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "employee name invalid")

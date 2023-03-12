@@ -1,122 +1,309 @@
-2023-01-26T09:24:35.664+05:30  INFO 13212 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 13212 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-26T09:24:35.696+05:30 DEBUG 13212 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-26T09:24:35.697+05:30  INFO 13212 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-26T09:25:09.526+05:30  WARN 13212 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookController': Unsatisfied dependency expressed through field 'addressService': Error creating bean with name 'addressBookService': Unsatisfied dependency expressed through field 'emailSenderService': Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-2023-01-26T09:25:10.133+05:30 ERROR 13212 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+2023-02-10T10:25:17.981+05:30  INFO 11204 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 11204 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-02-10T10:25:18.044+05:30 DEBUG 11204 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-10T10:25:18.045+05:30  INFO 11204 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-02-10T10:25:20.956+05:30  WARN 11204 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+2023-02-10T10:25:21.078+05:30 ERROR 11204 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookController': Unsatisfied dependency expressed through field 'addressService': Error creating bean with name 'addressBookService': Unsatisfied dependency expressed through field 'emailSenderService': Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:127) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915) ~[spring-context-6.0.3.jar:6.0.3]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584) ~[spring-context-6.0.3.jar:6.0.3]
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:524) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:304) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:398) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:283) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.3.jar:6.0.3]
 	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
 	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
 	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
-	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:13) ~[main/:na]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:17) ~[main/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'addressBookService': Unsatisfied dependency expressed through field 'emailSenderService': Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:127) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709) ~[spring-beans-6.0.3.jar:6.0.3]
+Caused by: java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:54) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:219) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:514) ~[spring-context-6.0.3.jar:6.0.3]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter
+	at org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2SsoCondition.getMatchOutcome(EnableOAuth2SsoCondition.java:39) ~[spring-security-oauth2-autoconfigure-2.6.8.jar:2.6.8]
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration$NeedsWebSecurityCondition.getMatchOutcome(OAuth2SsoDefaultConfiguration.java:57) ~[spring-security-oauth2-autoconfigure-2.6.8.jar:2.6.8]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
 	... 23 common frames omitted
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'emailSenderService': Unsatisfied dependency expressed through field 'mailSender': Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:712) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:692) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:127) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:481) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709) ~[spring-beans-6.0.3.jar:6.0.3]
-	... 37 common frames omitted
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mailSender' defined in class path resource [org/springframework/boot/autoconfigure/mail/MailSenderPropertiesConfiguration.class]: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:709) ~[spring-beans-6.0.3.jar:6.0.3]
-	... 51 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.mail.javamail.JavaMailSenderImpl]: Factory method 'mailSender' threw exception with message: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.0.3.jar:6.0.3]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.0.3.jar:6.0.3]
-	... 64 common frames omitted
-Caused by: java.lang.ArrayStoreException: arraycopy: element type mismatch: can not cast one of the elements of java.lang.Object[] to the type of the destination array, jakarta.activation.MimeTypeRegistry
-	at java.base/java.lang.System.arraycopy(Native Method) ~[na:na]
-	at java.base/java.util.Vector.copyInto(Vector.java:205) ~[na:na]
-	at jakarta.activation.MimetypesFileTypeMap.<init>(MimetypesFileTypeMap.java:141) ~[jakarta.activation-api-2.1.0.jar:na]
-	at jakarta.activation.MimetypesFileTypeMap.<init>(MimetypesFileTypeMap.java:313) ~[jakarta.activation-api-2.1.0.jar:na]
-	at org.springframework.mail.javamail.ConfigurableMimeFileTypeMap.createFileTypeMap(ConfigurableMimeFileTypeMap.java:150) ~[spring-context-support-6.0.3.jar:6.0.3]
-	at org.springframework.mail.javamail.ConfigurableMimeFileTypeMap.getFileTypeMap(ConfigurableMimeFileTypeMap.java:123) ~[spring-context-support-6.0.3.jar:6.0.3]
-	at org.springframework.mail.javamail.ConfigurableMimeFileTypeMap.afterPropertiesSet(ConfigurableMimeFileTypeMap.java:110) ~[spring-context-support-6.0.3.jar:6.0.3]
-	at org.springframework.mail.javamail.JavaMailSenderImpl.<init>(JavaMailSenderImpl.java:115) ~[spring-context-support-6.0.3.jar:6.0.3]
-	at org.springframework.boot.autoconfigure.mail.MailSenderPropertiesConfiguration.mailSender(MailSenderPropertiesConfiguration.java:44) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+Caused by: java.lang.ClassNotFoundException: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	... 26 common frames omitted
+
+2023-02-10T10:29:04.050+05:30  INFO 10392 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 10392 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-02-10T10:29:04.055+05:30 DEBUG 10392 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-10T10:29:04.058+05:30  INFO 10392 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-02-10T10:29:04.429+05:30  WARN 10392 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+2023-02-10T10:29:04.622+05:30 ERROR 10392 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:524) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:304) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:398) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:283) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:17) ~[main/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139) ~[spring-beans-6.0.3.jar:6.0.3]
-	... 65 common frames omitted
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
+Caused by: java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:54) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:219) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:514) ~[spring-context-6.0.3.jar:6.0.3]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter
+	at org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2SsoCondition.getMatchOutcome(EnableOAuth2SsoCondition.java:39) ~[spring-security-oauth2-autoconfigure-2.6.8.jar:2.6.8]
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration$NeedsWebSecurityCondition.getMatchOutcome(OAuth2SsoDefaultConfiguration.java:57) ~[spring-security-oauth2-autoconfigure-2.6.8.jar:2.6.8]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	... 26 common frames omitted
 
-2023-01-26T09:59:53.517+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 10084 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-26T09:59:53.566+05:30 DEBUG 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-26T09:59:53.567+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-26T10:00:09.287+05:30  WARN 10084 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-26T10:00:10.287+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 18.702 seconds (process running for 29.262)
-2023-01-26T10:00:10.294+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
-2023-01-26T10:00:10.297+05:30  INFO 10084 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
-2023-01-26T10:02:38.240+05:30  WARN 10084 --- [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.example.addressbookbackend.Exceptions.PersonRecordNotFoundException: Person record not found for token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.2v46rRAv_LkSxSNCgXYNrU9x3s7pcCDWXOVOJKqduvU]
-2023-01-26T10:08:15.923+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 7524 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-26T10:08:15.925+05:30 DEBUG 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-26T10:08:15.926+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-26T10:08:21.219+05:30  WARN 7524 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-26T10:08:21.687+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 6.345 seconds (process running for 7.748)
-2023-01-26T10:08:21.691+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
-2023-01-26T10:08:21.693+05:30  INFO 7524 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
-2023-01-26T10:09:30.213+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 7476 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
-2023-01-26T10:09:30.215+05:30 DEBUG 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
-2023-01-26T10:09:30.216+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
-2023-01-26T10:09:36.542+05:30  WARN 7476 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-01-26T10:09:37.099+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Started AddressBookBackendApplication in 7.783 seconds (process running for 9.679)
-2023-01-26T10:09:37.105+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book app started in DEV Environment
-2023-01-26T10:09:37.107+05:30  INFO 7476 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Address book DB User is root Environment
+2023-02-10T10:34:17.611+05:30  INFO 4176 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 4176 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-02-10T10:34:17.642+05:30 DEBUG 4176 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-10T10:34:17.644+05:30  INFO 4176 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-02-10T10:34:19.306+05:30  WARN 4176 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+2023-02-10T10:34:19.853+05:30 ERROR 4176 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:524) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:304) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:398) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:283) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:17) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:149) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.retrieveBeanMethodMetadata(ConfigurationClassParser.java:396) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:319) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:514) ~[spring-context-6.0.3.jar:6.0.3]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: javax/servlet/Filter
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method) ~[na:na]
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1013) ~[na:na]
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3434) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2536) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.0.3.jar:6.0.3]
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	... 39 common frames omitted
+
+2023-02-10T10:36:38.052+05:30  INFO 11788 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 11788 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-02-10T10:36:38.055+05:30 DEBUG 11788 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-10T10:36:38.057+05:30  INFO 11788 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-02-10T10:36:38.400+05:30  WARN 11788 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+2023-02-10T10:36:38.624+05:30 ERROR 11788 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:524) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:304) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:398) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:283) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:17) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:149) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.retrieveBeanMethodMetadata(ConfigurationClassParser.java:396) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:319) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:514) ~[spring-context-6.0.3.jar:6.0.3]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: javax/servlet/Filter
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method) ~[na:na]
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1013) ~[na:na]
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3434) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2536) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.0.3.jar:6.0.3]
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	... 39 common frames omitted
+
+2023-02-10T10:39:19.423+05:30  INFO 1884 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 1884 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-02-10T10:39:19.428+05:30 DEBUG 1884 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-10T10:39:19.429+05:30  INFO 1884 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-02-10T10:39:19.831+05:30  WARN 1884 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+2023-02-10T10:39:20.072+05:30 ERROR 1884 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:524) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:304) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:398) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:283) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:17) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.springframework.security.oauth2.config.annotation.web.configuration.OAuth2ClientConfiguration] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@4d7e1886]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.core.type.StandardAnnotationMetadata.getAnnotatedMethods(StandardAnnotationMetadata.java:149) ~[spring-core-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.retrieveBeanMethodMetadata(ConfigurationClassParser.java:396) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:319) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:514) ~[spring-context-6.0.3.jar:6.0.3]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: javax/servlet/Filter
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method) ~[na:na]
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1013) ~[na:na]
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681) ~[na:na]
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3434) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2536) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.0.3.jar:6.0.3]
+	... 26 common frames omitted
+Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	... 39 common frames omitted
+
+2023-02-10T11:19:13.400+05:30  INFO 11332 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Starting AddressBookBackendApplication using Java 18.0.2.1 with PID 11332 (E:\brglabz\CFP\Address book backend\build\classes\java\main started by iliya in E:\brglabz\CFP\Address book backend)
+2023-02-10T11:19:13.473+05:30 DEBUG 11332 --- [restartedMain] c.e.a.AddressBookBackendApplication      : Running with Spring Boot v3.0.1, Spring v6.0.3
+2023-02-10T11:19:13.474+05:30  INFO 11332 --- [restartedMain] c.e.a.AddressBookBackendApplication      : The following 1 profile is active: "dev"
+2023-02-10T11:19:14.586+05:30  WARN 11332 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+2023-02-10T11:19:14.986+05:30 ERROR 11332 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [com.example.addressbookbackend.AddressBookBackendApplication]: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:524) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:304) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:243) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:196) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:164) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:398) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:283) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:344) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:115) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:745) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:565) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302) ~[spring-boot-3.0.1.jar:3.0.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291) ~[spring-boot-3.0.1.jar:3.0.1]
+	at com.example.addressbookbackend.AddressBookBackendApplication.main(AddressBookBackendApplication.java:17) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.0.1.jar:3.0.1]
+Caused by: java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration due to org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:54) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:219) ~[spring-context-6.0.3.jar:6.0.3]
+	at org.springframework.context.annotation.ConfigurationClassParser.processImports(ConfigurationClassParser.java:514) ~[spring-context-6.0.3.jar:6.0.3]
+	... 20 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter
+	at org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2SsoCondition.getMatchOutcome(EnableOAuth2SsoCondition.java:39) ~[spring-security-oauth2-autoconfigure-2.6.8.jar:2.6.8]
+	at org.springframework.boot.autoconfigure.security.oauth2.client.OAuth2SsoDefaultConfiguration$NeedsWebSecurityCondition.getMatchOutcome(OAuth2SsoDefaultConfiguration.java:57) ~[spring-security-oauth2-autoconfigure-2.6.8.jar:2.6.8]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47) ~[spring-boot-autoconfigure-3.0.1.jar:3.0.1]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[na:na]
+	... 26 common frames omitted
+

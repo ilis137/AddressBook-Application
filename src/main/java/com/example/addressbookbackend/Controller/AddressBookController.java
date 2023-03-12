@@ -7,8 +7,13 @@ import com.example.addressbookbackend.Services.IAddressBookService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.SecurityBuilder;
+import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
+
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/addressbook")
 public class AddressBookController {
@@ -16,6 +21,11 @@ public class AddressBookController {
 
     @Autowired
     private IAddressBookService addressService;
+
+    @GetMapping("/")
+    public String message(Principal principal) {
+        return "Hi "+principal.getName()+" welcome to AddressBook Application";
+    }
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDTO> saveAddress(@RequestBody @Valid AddressBookDTO addressBookDTO) {
@@ -98,6 +108,8 @@ public class AddressBookController {
         ResponseDTO responseDTO =new ResponseDTO("deleted data for given token: " + token, true);
         return new ResponseEntity<>(responseDTO, HttpStatus.OK);
     }
+
+
 }
 /*
 * emailSenderService.sendEmail(addressBook.getEmail(),"Test Mail", "Hii...."+addressBook.getName()+" your details are added!\n\n Name:  "+addressBook.getName()+"\n Phone number:  "+addressBook.getPhoneNumber()+"\n Email:  "+addressBook.getEmail()+"\n Address:  "+addressBook.getAddress()+"\n City:  "+addressBook.getCity()+"\n State:  "+addressBook.getState()+"\n ZipCode:  "+addressBook.getZipCode());

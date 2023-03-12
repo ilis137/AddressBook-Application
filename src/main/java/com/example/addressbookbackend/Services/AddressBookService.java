@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class AddressBookService implements IAddressBookService {
     private static final ModelMapper modelMapper = new ModelMapper();
-
     @Autowired
     AddressBookRepository addressBookRepository;
-
+    @Autowired
+    NextSequenceService nextSequenceService;
     @Autowired
     EmailSenderService emailSenderService;
     @Autowired
@@ -30,6 +30,8 @@ public class AddressBookService implements IAddressBookService {
     @Override
     public AddressBookDTO savePersonRecord(AddressBookDTO addressBookDTO) {
         AddressBook record = modelMapper.map(addressBookDTO, AddressBook.class);
+
+        record.setRecordId(  nextSequenceService.getNextSequence("customSequences"));
         record = addressBookRepository.save(record);
         emailSenderService.sendEmail(record.getEmail(),"Test Mail", "Hii...."+record.getName()+" your details are added!\n\n Name:  "+record.getName()+"\n Phone number:  "+record.getPhoneNumber()+"\n Email:  "+record.getEmail()+"\n Address:  "+record.getAddress()+"\n City:  "+record.getCity()+"\n State:  "+record.getState()+"\n ZipCode:  "+record.getZip());
         return modelMapper.map(record, AddressBookDTO.class);
@@ -45,14 +47,14 @@ public class AddressBookService implements IAddressBookService {
 
     @Override
     public AddressBookDTO getPersonRecordById(int id) {
-        AddressBook addressBookData = addressBookRepository.findById(id).orElseThrow(() -> new PersonRecordNotFoundException("Person record not found for  id " + id));
+        AddressBook addressBookData = addressBookRepository.findByRecordId(id).orElseThrow(() -> new PersonRecordNotFoundException("Person record not found for  id " + id));
         log.debug(String.valueOf(addressBookData));
         return modelMapper.map(addressBookData, AddressBookDTO.class);
     }
 
     @Override
     public AddressBookDTO updatePersonRecordById(int id, AddressBookDTO addressBookDTO) {
-        AddressBook addressBookData = addressBookRepository.findById(id).orElseThrow(() -> new PersonRecordNotFoundException("Person record not found for  id " + id));
+        AddressBook addressBookData = addressBookRepository.findByRecordId(id).orElseThrow(() -> new PersonRecordNotFoundException("Person record not found for  id " + id));
         addressBookData.setName(addressBookDTO.getName());
         addressBookData.setAddress(addressBookDTO.getAddress());
         addressBookData.setCity(addressBookDTO.getCity());
@@ -68,8 +70,8 @@ public class AddressBookService implements IAddressBookService {
     @Override
     public void deletePersonRecordById(int id) {
         try {
-            Optional<AddressBook> record=addressBookRepository.findById(id);
-            addressBookRepository.deleteById(id);
+            Optional<AddressBook> record=addressBookRepository.findByRecordId(id);
+            addressBookRepository.deleteByRecordId(id);
             emailSenderService.sendEmail(record.get().getEmail(), "Test Mail","Hii....! Your details has been deleted!");
         } catch (RuntimeException ex) {
             throw new PersonRecordNotFoundException("Person record not found for id " + id);
@@ -115,7 +117,7 @@ public class AddressBookService implements IAddressBookService {
         AddressBook record = modelMapper.map(addressBookDTO, AddressBook.class);
         record = addressBookRepository.save(record);
         emailSenderService.sendEmail(record.getEmail(),"Test Mail", "Hii...."+record.getName()+" your details are added!\n\n Name:  "+record.getName()+"\n Phone number:  "+record.getPhoneNumber()+"\n Email:  "+record.getEmail()+"\n Address:  "+record.getAddress()+"\n City:  "+record.getCity()+"\n State:  "+record.getState()+"\n ZipCode:  "+record.getZip());
-        String token=jwtUtil.createToken(record.getId());
+        String token=jwtUtil.createToken(record.getRecordId());
         return token;
     }
     @Override

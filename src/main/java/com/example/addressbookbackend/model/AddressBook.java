@@ -1,21 +1,21 @@
 package com.example.addressbookbackend.model;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Entity
-@Table(name="addressbook")
+@Document(collection="addressbook")
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
 public class AddressBook {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    private int id;
+    @Nullable
+    private int recordId;
 
     @NonNull
     private String name;
